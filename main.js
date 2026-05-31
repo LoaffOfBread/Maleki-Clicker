@@ -4,7 +4,7 @@ price = basecost * 1.15^m, m=number of that upgrade owned*/
 let maleki = document.getElementById("maleki");
 
 // Basic vars for increasing Malekis
-let malekiCounter = 0;
+let malekiCounter = 3000;
 let increase = 1;
 let multiply = 1;
 let mps = 0;
@@ -16,6 +16,10 @@ let count1 = 0;
 // Le jar
 let price2 = 100;
 let count2 = 0;
+
+// Keyboard
+let price3 = 300;
+let count3 = 0;
 
 
 function updateCounter() {
@@ -61,7 +65,7 @@ function upgradeTwo() {
 
         mps += 1;
         count2 += 1;
-        price2 = Math.round(10 * 1.15 ** count2);
+        price2 = Math.round(100 * 1.15 ** count2);
         document.getElementById("upgrade2price").textContent = `Cost: ${price2} Maleki's`;
         document.getElementById("upgrade2count").textContent = `${count2}`;
         document.getElementById("counter").textContent = `You currently have ${malekiCounter} Maleki's.`;
@@ -72,6 +76,27 @@ function upgradeTwo() {
     }
 }
 
+function upgradeThree() {
+    if (malekiCounter >= price3) {
+        malekiCounter -= price3;
+        
+        malekiCounter = Math.round(malekiCounter * 100) / 100;
+
+        mps += 2;
+        count3 += 1;
+        price3 = Math.round(300 * 1.15 ** count3);
+        document.getElementById("upgrade3price").textContent = `Cost: ${price3} Maleki's`;
+        document.getElementById("upgrade3count").textContent = `${count3}`;
+        document.getElementById("counter").textContent = `You currently have ${malekiCounter} Maleki's.`;
+        document.getElementById("mpscount").textContent = `Your mps (Malekis per second) is ${mps}.`;
+    }
+    else {
+        window.alert("You cant afford this, try again chud")
+    }
+}
+
+
 maleki.onclick = malekiIncrease;
 upgrade1.onclick = upgradeOne;
 upgrade2.onclick = upgradeTwo;
+upgrade3.onclick = upgradeThree;
