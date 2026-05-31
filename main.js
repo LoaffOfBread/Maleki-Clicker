@@ -21,6 +21,9 @@ let count2 = 0;
 let price3 = 300;
 let count3 = 0;
 
+// Swing
+let price4 = 500;
+let count4 = 0;
 
 function updateCounter() {
     document.getElementById("counter").textContent = `You have ${malekiCounter.toFixed(2)} Maleki's`;
@@ -95,8 +98,35 @@ function upgradeThree() {
     }
 }
 
+function upgradeFour() {
+    if (malekiCounter >= price4) {
+        malekiCounter -= price4;
+        
+        malekiCounter = Math.round(malekiCounter * 100) / 100;
+
+        increase += 3;
+        count4 += 1;
+        price4 = Math.round(500 * 1.15 ** count3);
+        document.getElementById("upgrade4price").textContent = `Cost: ${price4} Maleki's`;
+        document.getElementById("upgrade4count").textContent = `${count4}`;
+        document.getElementById("counter").textContent = `You currently have ${malekiCounter} Maleki's.`;
+        document.getElementById("mpscount").textContent = `Your mps (Malekis per second) is ${mps}.`;
+    }
+    else {
+        window.alert("You cant afford this, try again chud")
+    }
+}
+
+
+// This will be used in the future
+function Rebirth() {
+    console.log("")
+}
+
+
 
 maleki.onclick = malekiIncrease;
 upgrade1.onclick = upgradeOne;
 upgrade2.onclick = upgradeTwo;
 upgrade3.onclick = upgradeThree;
+upgrade4.onclick = upgradeFour;
