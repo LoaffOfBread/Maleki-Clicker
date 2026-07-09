@@ -4,7 +4,7 @@ price = basecost * 1.15^m, m=number of that upgrade owned*/
 let maleki = document.getElementById("maleki");
 
 // Basic vars for increasing Malekis
-let malekiCounter = 3000;
+let malekiCounter = 0;
 let increase = 1;
 let multiply = 1;
 let mps = 0;
